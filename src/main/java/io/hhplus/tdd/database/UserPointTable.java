@@ -11,25 +11,26 @@ import java.util.Map;
  */
 @Component
 public class UserPointTable {
-    private Map<Long, UserPoint> table = new HashMap<>();
 
-    public UserPoint selectById(Long id) throws InterruptedException {
-        Thread.sleep(Long.parseLong(String.valueOf(Math.random())) * 200L);
+  private Map<Long, UserPoint> table = new HashMap<>();
 
-        UserPoint userPoint = table.get(id);
+  public UserPoint selectById(Long id) throws InterruptedException {
+    Thread.sleep((long) (Math.random() * 200L));
 
-        if (userPoint == null) {
-            return new UserPoint(id, 0L, System.currentTimeMillis());
-        }
-        return userPoint;
+    UserPoint userPoint = table.get(id);
+
+    if (userPoint == null) {
+      return new UserPoint(id, 0L, System.currentTimeMillis());
     }
+    return userPoint;
+  }
 
-    public UserPoint insertOrUpdate(Long id, Long amount) throws InterruptedException {
-        Thread.sleep(Long.parseLong(String.valueOf(Math.random())) * 300L);
+  public UserPoint insertOrUpdate(Long id, Long amount) throws InterruptedException {
+    Thread.sleep((long) (Math.random() * 300L));
 
-        UserPoint userPoint = new UserPoint(id, amount, System.currentTimeMillis());
-        table.put(id, userPoint);
+    UserPoint userPoint = new UserPoint(id, amount, System.currentTimeMillis());
+    table.put(id, userPoint);
 
-        return userPoint;
-    }
+    return userPoint;
+  }
 }
