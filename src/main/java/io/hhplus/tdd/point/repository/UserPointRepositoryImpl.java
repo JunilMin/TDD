@@ -14,7 +14,7 @@ public class UserPointRepositoryImpl implements UserPointRepository {
   }
 
   @Override
-  public UserPoint findUserPointById(Long userId) {
+  public UserPoint findUserPointById(Long userId) throws InterruptedException {
     return userPointTable.selectById(userId);
   }
 

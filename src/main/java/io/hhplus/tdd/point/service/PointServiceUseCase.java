@@ -6,7 +6,7 @@ import io.hhplus.tdd.point.UserPoint;
 import java.util.List;
 
 public interface PointServiceUseCase {
-  UserPoint findPointByUserId(Long userId);
+  UserPoint findPointByUserId(Long userId) throws InterruptedException;
 
   List<PointHistory> findHistoryByUserId(Long userId);
 

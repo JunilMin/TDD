@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 public interface UserPointRepository {
-  UserPoint findUserPointById(Long userId);
+  UserPoint findUserPointById(Long userId) throws InterruptedException;
 
   UserPoint save(Long userId, Long amount) throws InterruptedException;
 }

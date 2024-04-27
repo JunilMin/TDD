@@ -25,7 +25,7 @@ public class PointController {
    * TODO - 특정 유저의 포인트를 조회하는 기능을 작성해주세요.
    */
   @GetMapping("{id}")
-  public UserPointResponse point(@PathVariable Long id) {
+  public UserPointResponse point(@PathVariable Long id) throws InterruptedException {
     UserPoint userPoint = pointService.findPointByUserId(id);
     return UserPointResponse.from(userPoint);
   }

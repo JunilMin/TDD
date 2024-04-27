@@ -1,6 +1,8 @@
 package io.hhplus.tdd.point.service;
 
+import io.hhplus.tdd.LockHandler;
 import io.hhplus.tdd.point.PointHistory;
+import io.hhplus.tdd.point.TransactionType;
 import io.hhplus.tdd.point.UserPoint;
 import io.hhplus.tdd.point.repository.PointHistoryRepository;
 import io.hhplus.tdd.point.repository.UserPointRepository;
@@ -21,7 +23,7 @@ public class PointService implements PointServiceUseCase {
   private final LockHandler lockHandler;
 
   @Override
-  public UserPoint findPointByUserId(Long userId) {
+  public UserPoint findPointByUserId(Long userId) throws InterruptedException {
     verifyUserId(userId);
     return userPointRepository.findUserPointById(userId);
   }
